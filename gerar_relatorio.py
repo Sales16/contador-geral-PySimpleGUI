@@ -1,7 +1,6 @@
 import os
 import datetime
 import csv
-import pandas as pd
 import PySimpleGUI as sg
 import verificar_pdfs as vp
 import titlebar as tb
