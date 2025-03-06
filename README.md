@@ -1,2 +1,0 @@
-# contador geral PySimpleGUI
- 
