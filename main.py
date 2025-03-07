@@ -8,13 +8,15 @@ from verificar_validade import verificar_validade
 from alterar_campos import janela_alterar_campos
 
 def main():
+    window_main = None
     if not verificar_validade(dados.data_validade):
         sys.exit()
 
     try:
-        usuarios_verificado, USUARIO = janela_login()
-        if not usuarios_verificado:
+        usuarios_verificado, USUARIO, cancelado = janela_login()
+        if cancelado or not usuarios_verificado:
             sys.exit()
+            
 
         sg.theme(dados.tema)
         title = f"CONTADOR DE IMAGENS: {USUARIO}"
@@ -62,7 +64,8 @@ def main():
                 sg.popup_error(f"Erro inesperado: {e}", title="Erro no Loop Principal", keep_on_top=True)
     except Exception as e:
         sg.popup_error(f"Erro na inicialização: {e}", title="Erro de Inicialização", keep_on_top=True)
-    finally:
+        if window_main is not None:
+            window_main.close()
         window_main.close()
 
 if __name__ == "__main__":

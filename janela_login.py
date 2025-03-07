@@ -105,7 +105,7 @@ def janela_login():
 
             if evento in (sg.WINDOW_CLOSED, "CANCELAR"):
                 janela_login.close()
-                sys.exit()
+                return None, None, True
             senha_digitada = verificar_senha_digitada(
                 input_keys, evento, valores, janela_login
             )
