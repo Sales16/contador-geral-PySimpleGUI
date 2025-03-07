@@ -1,5 +1,6 @@
 import datetime
 import PySimpleGUI as sg
+from dados import ICONE_TITLEBAR
 
 
 def verificar_validade(validade):
@@ -28,5 +29,6 @@ def verificar_validade(validade):
             f"Erro ao verificar validade: {e}",
             title="Erro de Validação",
             keep_on_top=True,
+            icon=ICONE_TITLEBAR
         )
         return False

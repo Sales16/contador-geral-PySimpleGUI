@@ -57,16 +57,14 @@ def main():
                     pasta_saida = valores["OUTPUT_FILE"]
 
                     if not pasta_raiz or not pasta_saida:
-                        sg.popup_error("Por favor, selecione a pasta de leitura e o local para salvar o relatório.", title="Erro de Entrada", keep_on_top=True)
+                        sg.popup_error("Por favor, selecione a pasta de leitura e o local para salvar o relatório.", title="Erro de Entrada", keep_on_top=True, icon=dados.ICONE_TITLEBAR)
                     else:
                         gerar_relatorio(pasta_raiz, pasta_saida, USUARIO, campos_csv)
             except Exception as e:
-                sg.popup_error(f"Erro inesperado: {e}", title="Erro no Loop Principal", keep_on_top=True)
+                sg.popup_error(f"Erro inesperado: {e}", title="Erro no Loop Principal", keep_on_top=True, icon=dados.ICONE_TITLEBAR)
     except Exception as e:
-        sg.popup_error(f"Erro na inicialização: {e}", title="Erro de Inicialização", keep_on_top=True)
-        if window_main is not None:
-            window_main.close()
-        window_main.close()
+        sg.popup_error(f"Erro na inicialização: {e}", title="Erro de Inicialização", keep_on_top=True, icon=dados.ICONE_TITLEBAR)
+    window_main.close()
 
 if __name__ == "__main__":
     main()

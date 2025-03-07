@@ -63,10 +63,10 @@ def janela_alterar_campos(campos):
                     return campos
 
             except Exception as e:
-                sg.popup_error(f"Ocorreu um erro durante a execução:\n{str(e)}", title="Erro")
+                sg.popup_error(f"Ocorreu um erro durante a execução:\n{str(e)}", title="Erro", icon=tb.ICONE_TITLEBAR)
 
     except Exception as e:
-        sg.popup_error(f"Erro ao iniciar a janela:\n{str(e)}", title="Erro Fatal")
+        sg.popup_error(f"Erro ao iniciar a janela:\n{str(e)}", title="Erro Fatal", icon=tb.ICONE_TITLEBAR)
 
     finally:
         janlela_alterar_campos.close()

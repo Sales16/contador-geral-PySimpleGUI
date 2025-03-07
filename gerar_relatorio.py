@@ -98,8 +98,8 @@ def gerar_relatorio(pasta_raiz, pasta_saida, USUARIO, campos_selecionados):
                         sg.popup_timed(
                             f"Erro ao processar o arquivo {arquivo}: {e}",
                             title="Erro de Processamento",
-                            icon=tb.ICONE_TASKBAR,
                             keep_on_top=True,
+                            icon=tb.ICONE_TITLEBAR
                         )
 
                     text_elem.update(f"{i} arquivos de {total_arquivos}")
@@ -117,15 +117,15 @@ def gerar_relatorio(pasta_raiz, pasta_saida, USUARIO, campos_selecionados):
             sg.popup_error(
                 f"Erro ao salvar o relatório: {e}",
                 title="Erro de Salvamento",
-                icon=tb.ICONE_TASKBAR,
                 keep_on_top=True,
+                icon=tb.ICONE_TITLEBAR
             )
     except Exception as e:
         sg.popup_error(
             f"Erro geral na geração do relatório: {e}",
             title="Erro Geral",
-            icon=tb.ICONE_TASKBAR,
             keep_on_top=True,
+            icon=tb.ICONE_TITLEBAR
         )
     finally:
         janela_de_progresso.close()

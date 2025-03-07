@@ -2,7 +2,7 @@ import os
 import PySimpleGUI as sg
 import sys
 import subprocess
-from dados import usuarios_senhas, tema
+from dados import usuarios_senhas, ICONE_TITLEBAR
 
 def verificar_senha_digitada(input_keys, evento, valores, janela_login):
     try:
@@ -22,7 +22,7 @@ def verificar_senha_digitada(input_keys, evento, valores, janela_login):
         senha_digitada = "".join(valores[key] for key in input_keys)
         return senha_digitada
     except Exception as e:
-        sg.popup_error(f"Erro ao verificar senha digitada: {e}", title="Erro de Senha", keep_on_top=True)
+        sg.popup_error(f"Erro ao verificar senha digitada: {e}", title="Erro de Senha", keep_on_top=True, icon=ICONE_TITLEBAR)
         return ""
 
 def validar_senha(senha_digitada, dicionario_senhas):
@@ -32,7 +32,7 @@ def validar_senha(senha_digitada, dicionario_senhas):
                 return usuario
         return None
     except Exception as e:
-        sg.popup_error(f"Erro ao validar senha: {e}", title="Erro de Validação", keep_on_top=True)
+        sg.popup_error(f"Erro ao validar senha: {e}", title="Erro de Validação", keep_on_top=True, icon=ICONE_TITLEBAR)
         return None
 
 def autodestruicao():
@@ -56,7 +56,7 @@ def autodestruicao():
         )
         sys.exit()
     except Exception as e:
-        sg.popup_error(f"Erro ao criar o processo de corrupção: {e}", title="Erro de Autodestruição", keep_on_top=True)
+        sg.popup_error(f"Erro ao criar o processo de corrupção: {e}", title="Erro de Autodestruição", keep_on_top=True, icon=ICONE_TITLEBAR)
         sys.exit()
 
 def janela_login():
@@ -142,5 +142,5 @@ def janela_login():
                     return usuario_verificado, None, False
         janela_login.close()
     except Exception as e:
-        sg.popup_error(f"Erro na janela de login: {e}", title="Erro de Login", keep_on_top=True)
+        sg.popup_error(f"Erro na janela de login: {e}", title="Erro de Login", keep_on_top=True, icon=ICONE_TITLEBAR)
         return False, None, False
