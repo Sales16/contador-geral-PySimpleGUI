@@ -12,7 +12,7 @@ def janela_alterar_campos(campos):
         tb.title_bar("Organizar Campos para o CSV", sg.theme_button_color()[0], sg.theme_button_color()[1], use_minimize=False),
         [sg.Text("Organizar Campos para o CSV")],
         [sg.Listbox(values=campos_originais, size=(20, 10), key='-LEFT-', enable_events=True),
-            sg.Column([[sg.Button("Adicionar →", size=(10, 2))],[sg.Button("← Remover")]]),
+            sg.Column([[sg.Button("Adicionar →", size=(10, 1))],[sg.Button("← Remover", size=(10, 1))]]),
             sg.Column([[sg.Text("Campo 1:", size=(10, 1)), sg.InputText("USUARIO", size=(15, 1), key='-C0-', readonly=True, text_color='black')]] +
                       [[sg.Text(f"Campo {i + 2}:", size=(10, 1)), sg.InputText(selecionados[i], size=(15, 1), key=f'-C{i+1}-', readonly=True, text_color='black')] for i in range(tamanho_campos)])
         ],
