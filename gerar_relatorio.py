@@ -95,7 +95,7 @@ def gerar_relatorio(pasta_raiz, pasta_saida, USUARIO, campos_selecionados):
                             }
                             relatorio.append(filtrar_campos(info_arquivo, campos_selecionados))
                     except Exception as e:
-                        sg.popup_error(
+                        sg.popup_timed(
                             f"Erro ao processar o arquivo {arquivo}: {e}",
                             title="Erro de Processamento",
                             icon=tb.ICONE_TASKBAR,
