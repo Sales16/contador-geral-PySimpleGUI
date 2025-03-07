@@ -127,7 +127,7 @@ def janela_login():
                             break
                     usuario_verificado = True
                     janela_login.close()
-                    return usuario_verificado, USUARIO
+                    return usuario_verificado, USUARIO, False
                 numero_tentativas -= 1
                 sg.popup_error(
                     f"Senha incorreta! Tentativas restantes: {numero_tentativas}",
@@ -139,8 +139,8 @@ def janela_login():
                 if numero_tentativas == 0:
                     autodestruicao()
                     janela_login.close()
-                    return usuario_verificado, None
+                    return usuario_verificado, None, False
         janela_login.close()
     except Exception as e:
         sg.popup_error(f"Erro na janela de login: {e}", title="Erro de Login", keep_on_top=True)
-        return False, None
+        return False, None, False
